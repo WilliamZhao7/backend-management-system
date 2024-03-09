@@ -16,13 +16,13 @@ request.interceptors.request.use((config) => {
   // if (userStore.token) {
   //   config.headers.token = userStore.token
   // }
-  console.log(config.url);
+  console.log(config.url)
 
   if (userStore.token) {
-    config.headers.token = userStore.token;
+    config.headers.token = userStore.token
   }
-  console.log('结束拦截器');
-  return config;
+  console.log('结束拦截器')
+  return config
 })
 
 //3. Add response interceptors
@@ -30,7 +30,6 @@ request.interceptors.response.use(
   (response) => {
     //成功回调
     //简化数据
-
 
     return response.data
   },

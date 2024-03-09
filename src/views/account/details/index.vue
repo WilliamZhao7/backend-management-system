@@ -1,12 +1,7 @@
 <template>
-    <div>
-        Account Details
-
-    </div>
+  <div>Account Details</div>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>

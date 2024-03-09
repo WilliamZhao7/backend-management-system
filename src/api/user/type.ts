@@ -14,7 +14,6 @@ export interface ResponseData {
 
 //定义登录接口返回数据类型
 export interface loginResponseData extends ResponseData {
-
   data: {
     token: string
   }
@@ -30,9 +29,3 @@ export interface userInfoReponseData extends ResponseData {
     avatar: string
   }
 }
-
-
-
-
-
-

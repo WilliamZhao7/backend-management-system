@@ -1,6 +1,10 @@
 import { defineStore } from 'pinia'
 // 替换假接口
-import type { loginFormData, loginResponseData, userInfoReponseData } from '@/api/user/type'
+import type {
+  loginFormData,
+  loginResponseData,
+  userInfoReponseData,
+} from '@/api/user/type'
 import { reqLogin, reqUserInfo, reqLogout } from '@/api/user'
 
 import type { UserState } from './types/type'
@@ -16,71 +20,61 @@ let useUserStore = defineStore('User', {
       token: GET_TOKEN(),
       menuRoutes: constantRoute,
       username: '',
-      avatar: ''
+      avatar: '',
     }
   },
 
   actions: {
     // 用户登录的方法
     async userLogin(data: loginFormData) {
-      console.log(data);
+      console.log(data)
 
-
-      let result: loginResponseData = await reqLogin(data);
-      console.log(result);
-
+      let result: loginResponseData = await reqLogin(data)
+      console.log(result)
 
       if (result.code == 200) {
         //真实接口切换
-        this.token = (result.data.token as string);
-        SET_TOKEN(result.data.token as string);
+        this.token = result.data.token as string
+        SET_TOKEN(result.data.token as string)
 
-        return 'ok';
-
+        return 'ok'
       } else {
         // console.log('debuuuug')
-        return Promise.reject(new Error(result.message as string));
+        return Promise.reject(new Error(result.message as string))
       }
-
     },
     // Get Info
     async userInfo() {
-
-      let result: userInfoReponseData = await reqUserInfo();
+      let result: userInfoReponseData = await reqUserInfo()
 
       if (result.code == 200) {
         // 真实接口切换
-        this.username = result.data.name;
-        this.avatar = result.data.avatar;
+        this.username = result.data.name
+        this.avatar = result.data.avatar
         // this.username = result.data.checkUser.username;
         // this.avatar = result.data.checkUser.avatar;
-        return 'ok';
+        return 'ok'
       } else {
-        return Promise.reject(new Error(result.message));
+        return Promise.reject(new Error(result.message))
       }
-
     },
     // 退出登录
     async userLogout() {
-      let result: any = await reqLogout();
+      let result: any = await reqLogout()
       // console.log(result);
       if (result.code == 200) {
         // 目前没有mock接口：退出登录接口（通知服务器本地用户唯一标识失效）清空头像、token
-        this.avatar = '';
-        this.token = '';
-        this.username = '';
-        REMOVE_TOKEN();
-        return 'ok';
+        this.avatar = ''
+        this.token = ''
+        this.username = ''
+        REMOVE_TOKEN()
+        return 'ok'
       } else {
-        return Promise.reject(new Error(result.message));
+        return Promise.reject(new Error(result.message))
       }
-
-    }
+    },
   },
-  getters: {
-
-  }
-
+  getters: {},
 })
 
-export default useUserStore;
+export default useUserStore

@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 defineProps<{ msg: string }>()
 
-let count = ref(0);
+let count = ref(0)
 </script>
 
 <template>
@@ -35,7 +35,6 @@ let count = ref(0);
 
 <style scoped lang="scss">
 body {
-
   .read-the-docs {
     color: #888;
   }

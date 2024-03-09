@@ -11,20 +11,22 @@ import { UserConfigExport, ConfigEnv } from 'vite'
 export default defineConfig(({ command, mode }) => {
   // 获取各种环境下的对应的变量
   // 参数： 开发模式，根路径
-  let env = loadEnv(mode, process.cwd());
+  let env = loadEnv(mode, process.cwd())
   return {
-    plugins: [vue(),
-    createSvgIconsPlugin({
-      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
-      symbolId: 'icon-[dir]-[name]',
-    }),
-    viteMockServe({
-      localEnabled: command === 'serve',//保证开发阶段可以使用mock接口
-    })],
+    plugins: [
+      vue(),
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+        symbolId: 'icon-[dir]-[name]',
+      }),
+      viteMockServe({
+        localEnabled: command === 'serve', //保证开发阶段可以使用mock接口
+      }),
+    ],
     resolve: {
       alias: {
-        "@": path.resolve("./src") // 相对路径别名配置，使用 @ 代替 src
-      }
+        '@': path.resolve('./src'), // 相对路径别名配置，使用 @ 代替 src
+      },
     },
     css: {
       preprocessorOptions: {
@@ -44,10 +46,8 @@ export default defineConfig(({ command, mode }) => {
           changeOrigin: true,
           // 路径重写
           rewrite: (path) => path.replace(/^\/api/, ''),
-        }
-      }
-
-    }
-
+        },
+      },
+    },
   }
 })

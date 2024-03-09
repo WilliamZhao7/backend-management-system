@@ -1,11 +1,7 @@
 <template>
-    <div>
-        Form Detials
-    </div>
+  <div>Form Detials</div>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>
