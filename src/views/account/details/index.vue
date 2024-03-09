@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+    <div>
+        Account Details
+
+    </div>
 </template>
 
 <script setup lang="ts">

@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+    <div>
+        Form Detials
+    </div>
 </template>
 
 <script setup lang="ts">
